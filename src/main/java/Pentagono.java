@@ -4,7 +4,7 @@ public class Pentagono extends Figura{
     private double apotema;
     private double lado;
 
-    public Pentagono(Punto centro, double apotema, double lado) {
+    public Pentagono(List<Punto> puntos, double apotema, double lado) {
         super(centro);
         this.apotema = apotema;
         this.lado = lado;
