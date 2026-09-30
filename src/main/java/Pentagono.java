@@ -5,8 +5,16 @@ public class Pentagono extends Figura{
     private double lado;
 
     public Pentagono(List<Punto> puntos, double apotema, double lado) {
-        super(centro);
+        super("Pentagono", puntos);
         this.apotema = apotema;
+        this.lado = lado;
+    }
+
+    public void setApotema(double apotema) {
+        this.apotema = apotema;
+    }
+
+    public void setLado(double lado) {
         this.lado = lado;
     }
 
@@ -22,6 +30,8 @@ public class Pentagono extends Figura{
 
     @Override
     public void escalar(double factor) {
-        this.lado = lado*factor;
+        setLado(lado * factor);
+        setApotema(apotema * factor);
+
     }
 }
