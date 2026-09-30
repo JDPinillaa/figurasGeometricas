@@ -5,8 +5,8 @@ public class Triangulo extends Figura{
     private double base;
     private double lado;
 
-    public Triangulo(Punto centro, double altura, double base, double lado) {
-        super(centro);
+    public Triangulo(List<Punto> puntos, double altura, double base, double lado) {
+        super("Triangulo", puntos);
         this.altura = altura;
         this.base = base;
         this.lado = lado;
