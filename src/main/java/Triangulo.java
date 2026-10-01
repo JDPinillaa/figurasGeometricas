@@ -7,20 +7,31 @@ public class Triangulo extends Figura{
 
     public Triangulo(List<Punto> puntos, double altura, double base, double lado) {
         super("Triangulo", puntos);
-        this.altura = altura;
-        this.base = base;
-        this.lado = lado;
+        setAltura(altura);
+        setBase(base);
+        setLado(lado);
     }
 
     public void setAltura(double altura) {
+
+        if (base <= o) {
+            throw new IllegalArgumentException("La altura debe ser mayor que cero");
+        }
         this.altura = altura;
     }
 
     public void setBase(double base) {
+        if (base <= 0){
+            throw new IllegalArgumentException("La base debe ser mayor que cero");
+        }
         this.base = base;
     }
 
     public void setLado(double lado) {
+
+        if (lado <= 0) {
+            throw new IllegalArgumentException("El lado debe ser mayor que cero");
+        }
         this.lado = lado;
     }
 
