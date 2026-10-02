@@ -53,7 +53,7 @@ public class InterfazConsola {
     private void crearFigura() {
         System.out.println("\nTipo: 1=Circulo 2=Triangulo 3=CuadrilateroEquilatero 4=PentagonoRegular");
         int tipo = leerEntero("Tipo: ");
-        List<Punto> puntos = leerPuntos(minimoPuntos(tipo));
+        List<Punto> puntos = leerPuntos(puntosExactos(tipo));
         Figura figura;
         switch (tipo) {
             case 1 -> figura = new Circulo(puntos, leerDecimal("Radio: "));
@@ -69,7 +69,7 @@ public class InterfazConsola {
         System.out.println("Creada: " + figura);
     }
 
-    private int minimoPuntos(int tipo) {
+    private int puntosExactos(int tipo) {
         return switch (tipo) {
             case 1 -> 1;
             case 2 -> 3;
@@ -79,13 +79,10 @@ public class InterfazConsola {
         };
     }
 
-    private List<Punto> leerPuntos(int minimo) {
-        int n = leerEntero("Cantidad de puntos (mínimo " + minimo + "): ");
-        if (n < minimo) {
-            throw new IllegalArgumentException("Se requieren al menos " + minimo + " puntos.");
-        }
+    private List<Punto> leerPuntos(int exactos) {
+        System.out.println("Ingrese los " + exactos + " puntos (x, y):");
         List<Punto> puntos = new ArrayList<>();
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < exactos; i++) {
             double x = leerDecimal("Punto " + (i + 1) + " x: ");
             double y = leerDecimal("Punto " + (i + 1) + " y: ");
             puntos.add(new Punto(x, y));
