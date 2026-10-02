@@ -1,10 +1,10 @@
 import java.util.List;
 
-public class Pentagono extends Figura{
+public class PentagonoRegular extends Figura{
     private double apotema;
     private double lado;
 
-    public Pentagono(List<Punto> puntos, double apotema, double lado) {
+    public PentagonoRegular(List<Punto> puntos, double apotema, double lado) {
         super("Pentagono", puntos);
         this.apotema = apotema;
         this.lado = lado;
