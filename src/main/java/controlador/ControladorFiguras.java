@@ -1,5 +1,8 @@
+package controlador;
+
 import java.util.ArrayList;
 import java.util.List;
+import modelo.Figura;
 
 public class ControladorFiguras {
     private List<Figura> figuras = new ArrayList<>();
