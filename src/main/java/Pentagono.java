@@ -34,4 +34,23 @@ public class Pentagono extends Figura{
         setApotema(apotema * factor);
 
     }
+
+    @Override
+    public float getArea() {
+        return (float) calcularArea();
+    }
+
+    @Override
+    public float getPerimetro() {
+        return (float) calcularPerimetro();
+    }
+
+    @Override
+    public float dimensionar() {
+        float sumaX = 0;
+        for (Punto p : getPuntos()) {
+            sumaX += p.getX();
+        }
+        return sumaX;
+    }
 }

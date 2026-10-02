@@ -14,7 +14,7 @@ public class Triangulo extends Figura{
 
     public void setAltura(double altura) {
 
-        if (base <= o) {
+        if (altura <= 0) {
             throw new IllegalArgumentException("La altura debe ser mayor que cero");
         }
         this.altura = altura;
@@ -50,6 +50,21 @@ public class Triangulo extends Figura{
         setLado(lado * factor);
         setBase(base * factor);
         setAltura(altura * factor);
+    }
+
+    @Override
+    public float getArea() {
+        return (float) calcularArea();
+    }
+
+    @Override
+    public float getPerimetro() {
+        return (float) calcularPerimetro();
+    }
+
+    @Override
+    public float dimensionar() {
+        return (float) calcularPerimetro();
     }
 }
 
