@@ -14,4 +14,22 @@ public class ControladorFiguras {
     public List<Figura> getFiguras() {
         return figuras;
     }
+
+    /** Suma de las áreas de todas las figuras registradas. */
+    public double getArea() {
+        double suma = 0;
+        for (Figura f : figuras) {
+            suma += f.calcularArea();
+        }
+        return suma;
+    }
+
+    /** Suma de los perímetros de todas las figuras registradas. */
+    public double getPerimetro() {
+        double suma = 0;
+        for (Figura f : figuras) {
+            suma += f.calcularPerimetro();
+        }
+        return suma;
+    }
 }
