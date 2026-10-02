@@ -32,4 +32,26 @@ public class ControladorFiguras {
         }
         return suma;
     }
+
+    /**
+     * Compara dos figuras del mismo tipo según su dimensionar.
+     * Retorna la lista ordenada [menor, mayor]; si empatan, conserva el orden recibido.
+     */
+    public ArrayList<Figura> comparar(Figura figura1, Figura figura2) {
+        if (figura1 == null || figura2 == null) {
+            throw new IllegalArgumentException("Las figuras a comparar no pueden ser nulas");
+        }
+        if (!figura1.getTipo().equals(figura2.getTipo())) {
+            throw new IllegalArgumentException("Solo se pueden comparar figuras del mismo tipo");
+        }
+        ArrayList<Figura> resultado = new ArrayList<>();
+        if (figura1.dimensionar() <= figura2.dimensionar()) {
+            resultado.add(figura1);
+            resultado.add(figura2);
+        } else {
+            resultado.add(figura2);
+            resultado.add(figura1);
+        }
+        return resultado;
+    }
 }
