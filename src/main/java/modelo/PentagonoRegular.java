@@ -1,15 +1,23 @@
+package modelo;
+
 import java.util.List;
 
-public class CuadrilateroEquilatero extends Figura {
+public class PentagonoRegular extends Figura{
+    private double apotema;
     private double lado;
 
-    public CuadrilateroEquilatero(List<Punto> puntos, double lado) {
-        super("CuadrilateroEquilatero", puntos);
+    public PentagonoRegular(List<Punto> puntos, double apotema, double lado) {
+        super("Pentagono", puntos);
+        setApotema(apotema);
         setLado(lado);
     }
 
-    public double getLado() {
-        return lado;
+    public void setApotema(double apotema) {
+
+        if (apotema <= 0) {
+            throw new IllegalArgumentException("La apotema debe ser mayor que cero");
+        }
+        this.apotema = apotema;
     }
 
     public void setLado(double lado) {
@@ -21,12 +29,12 @@ public class CuadrilateroEquilatero extends Figura {
 
     @Override
     public double calcularArea() {
-        return lado * lado;
+        double perimetro = calcularPerimetro();
+        return (perimetro * apotema)/2;
     }
-
     @Override
-    public double calcularPerimetro() {
-        return lado * 4;
+    public double calcularPerimetro(){
+        return lado*5;
     }
 
     @Override
@@ -39,17 +47,13 @@ public class CuadrilateroEquilatero extends Figura {
         return (float) calcularPerimetro();
     }
 
-    /**
-     * Enunciado: suma de las distancias de sus cuatro puntos al centro del plano (0,0).
-     * Se calcula con getX()/getY() para no depender de Punto.distancia().
-     */
     @Override
     public float dimensionar() {
-        float suma = 0;
+        double suma = 0;
         for (Punto p : getPuntos()) {
-            suma += Math.sqrt(p.getX() * p.getX() + p.getY() * p.getY());
+            suma += p.getX();
         }
-        return suma;
+        return (float) suma;
     }
 
     @Override
@@ -57,6 +61,10 @@ public class CuadrilateroEquilatero extends Figura {
         if (factor <= 0) {
             throw new IllegalArgumentException("El factor debe ser mayor que cero");
         }
+        for (Punto p : getPuntos()) {
+            p.escalar(factor);
+        }
         setLado(lado * factor);
+        setApotema(apotema * factor);
     }
 }
