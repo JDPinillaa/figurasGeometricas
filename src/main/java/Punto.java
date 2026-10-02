@@ -34,7 +34,7 @@ public class Punto {
         }
         double dx = this.x - otro.getX();
         double dy = this.y - otro.getY();
-        print("Distancia: " + Math.sqrt(dx * dx + dy * dy));
+        System.out.println("Distancia: " + Math.sqrt(dx * dx + dy * dy));
     }
 
 
