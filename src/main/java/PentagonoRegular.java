@@ -6,15 +6,22 @@ public class PentagonoRegular extends Figura{
 
     public PentagonoRegular(List<Punto> puntos, double apotema, double lado) {
         super("Pentagono", puntos);
-        this.apotema = apotema;
-        this.lado = lado;
+        setApotema(apotema);
+        setLado(lado);
     }
 
     public void setApotema(double apotema) {
+
+        if (apotema <= 0) {
+            throw new IllegalArgumentException("La apotema debe ser mayor que cero");
+        }
         this.apotema = apotema;
     }
 
     public void setLado(double lado) {
+        if (lado <= 0) {
+            throw new IllegalArgumentException("El lado debe ser mayor que cero");
+        }
         this.lado = lado;
     }
 
@@ -29,13 +36,6 @@ public class PentagonoRegular extends Figura{
     }
 
     @Override
-    public void escalar(double factor) {
-        setLado(lado * factor);
-        setApotema(apotema * factor);
-
-    }
-
-    @Override
     public float getArea() {
         return (float) calcularArea();
     }
@@ -47,10 +47,22 @@ public class PentagonoRegular extends Figura{
 
     @Override
     public float dimensionar() {
-        float sumaX = 0;
+        double suma = 0;
         for (Punto p : getPuntos()) {
-            sumaX += p.getX();
+            suma += p.getX();
         }
-        return sumaX;
+        return (float) suma;
+    }
+
+    @Override
+    public void escalar(double factor) {
+        if (factor <= 0) {
+            throw new IllegalArgumentException("El factor debe ser mayor que cero");
+        }
+        for (Punto p : getPuntos()) {
+            p.escalar(factor);
+        }
+        setLado(lado * factor);
+        setApotema(apotema * factor);
     }
 }
