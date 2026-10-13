@@ -1,6 +1,8 @@
 package vista;
 
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class VentanaPrincipal {
     private JPanel panel;
@@ -13,4 +15,25 @@ public class VentanaPrincipal {
     private JButton escalarButton;
     private JButton compararButton;
     private JButton totalesButton;
+
+    public VentanaPrincipal() {
+        buttonDetalle.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+        desplazarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+        escalarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+    }
 }
